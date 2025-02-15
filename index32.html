@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>První pomoc při předávkování</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4e1d2; margin: 0; padding: 0; }
+        header {
+    background: linear-gradient(45deg, #8B4513, #A0522D); /* Krásný podzimní přechod */
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+.main-title {
+    font-size: 50px; /* Větší a výraznější */
+    font-weight: bold;
+    text-transform: uppercase; /* VELKÁ PÍSMENA */
+    letter-spacing: 2px; /* Mezera mezi písmeny */
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); /* Jemný stín pro lepší čitelnost */
+    animation: fadeIn 1.5s ease-in-out; /* Animace pro efektivní nástup */
+}
+.sub-title {
+     font-size: 26px; /* Viditelný, ale menší než hlavní nadpis */
+    font-weight: normal;
+    margin: 10px 0 0 0;
+    color: #ffe6c7; /* Světlejší barva pro lepší viditelnost */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Lehce silnější stín */
+}
+
+/* Přidání animace pro hladký efekt */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+        nav { background-color: #A0522D; padding: 10px; text-align: center; }
+        nav a { color: white; text-decoration: none; padding: 10px; }
+        .container { max-width: 900px; margin: 20px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        h2 { color: #8B4513; }
+        .button { background-color: #D2691E; color: white; padding: 10px 15px; text-decoration: none; display: inline-block; border-radius: 5px; margin-top: 10px; cursor: pointer; }
+        .icon { margin-right: 10px; }
+        .info-section { background: #f3d9b5; padding: 15px; border-radius: 8px; margin-top: 10px; }
+        .naloxon-section { background: #f8d7da; padding: 15px; border-left: 5px solid #721c24; border-radius: 8px; margin-top: 20px; }
+        .naloxon-section h3 { color: #721c24; }
+                /* Speciální sekce mají světle zelené pozadí */
+        #addiction, #myths, #helping-users {
+            background: #f5d59a !important; /* Světle zelená */
+            padding: 20px;  /* Lepší vzhled sekce */
+            border-radius: 8px; /* Zakulacení rohů */
+            margin-top: 20px; /* Odsazení od ostatních sekcí */
+        }
+        .intro-section {
+    background: #e6d5b8; /* Jemná podzimní béžová */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 900px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.drug-list-box {
+    background: #fae5c3; /* Světle hnědo-béžová */
+    padding: 15px;
+    border-radius: 10px; /* Kulaté rohy */
+    border: 2px solid #8B4513; /* Tmavší hnědý okraj */
+    margin: 20px 0; /* Odsazení od ostatních prvků */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Jemný stín */
+}
+.drug-list-box h3 {
+    color: #8B4513; /* Tmavší hnědá pro nadpis */
+    margin-top: 0;
+    text-align: center;
+}
+.drug-list-box ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+.drug-list-box li {
+    display: inline-block;
+    margin: 5px 10px;
+}
+.drug-list-box a {
+    color: #A0522D; /* Hnědo-oranžové odkazy, ladící s webem */
+    text-decoration: none;
+    font-weight: bold;
+}
+.drug-list-box a:hover {
+    text-decoration: underline;
+}
+.contacts-box {
+    background: #fff58c; /* Jemná zlatavě žlutá - podzimní barva */
+    padding: 20px;
+    border-radius: 10px; /* Kulaté rohy */
+    border: 2px solid #f2ce57; /* Tmavší oranžovo-žlutý okraj */
+    margin: 20px 0; /* Odsazení od ostatních prvků */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Jemný stín */
+    text-align: left;
+}
+.contacts-box h2 {
+    color: #8B4513; /* Hnědá pro nadpis */
+    text-align: center;
+}
+.contacts-box ul {
+    list-style: none;
+    padding: 0;
+}
+.contacts-box li {
+    font-size: 16px;
+    padding: 5px 0;
+}
+.contacts-box a {
+    color: #5a3e1b; /* Hnědé odkazy */
+    text-decoration: none;
+    font-weight: bold;
+}
+.contacts-box a:hover {
+    text-decoration: underline;
+}
+.quiz-box {
+    background: #f0dfbb; /* Podzimní zlato-oranžová */
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+.quiz-box button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.quiz-box button:hover {
+    background-color: #d4b896; /* Světlejší při najetí */
+}
+.faq-box {
+    background: #f8e1a1; /* Světle žlutá */
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+details {
+    margin: 10px 0;
+}
+summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+    <h1 class="main-title">Neztrácej čas!</h1>
+    <h2 class="sub-title">Pomoc při předávkování</h2>
+</header>
+    <div class="intro-section">
+    <h2><i class="fas fa-hand-holding-heart icon"></i> O tomto webu</h2>
+    <p>Tento web byl vytvořen s cílem poskytovat důležité informace o první pomoci při předávkování a o prevenci závislostí. 
+    Najdete zde podrobné návody, jak reagovat v případě předávkování různými látkami, a také kontakty na odbornou pomoc.
+    Chceme přispět k bezpečnosti a informovanosti všech, kdo se mohou s tímto problémem setkat.</p>
+    
+    <p><strong>⚠️ V každém případě předávkování vždy volejte <span style="color: red;">155</span>!</strong></p>
+</div>
+    <nav>
+        <a href="#info">Co je předávkování?</a>
+        <a href="#substances">Látky</a>
+        <a href="#naloxone">Podání Naloxonu</a>
+        <a href="#addiction">Závislost</a>
+        <a href="#helping-users">Pomoc blízkým</a>
+        <a href="#myths">Mýty o drogách</a>
+        <a href="#contacts">Kontakty</a>
+    </nav>
+    <div class="container">
+        <h2 id="info"><i class="fas fa-info-circle icon"></i> Co je předávkování?</h2>
+        <p>K předávkování dochází, když člověk užije drogu nebo kombinaci drog,
+resp. léčiv, ve větším množství, než je jeho tělo schopno zvládnout.
+V důsledku toho přestává centrální nervová soustava (CNS) ovládat
+základní životní funkce. Člověk v takovém stavu může ztratit vědomí,
+může přestat dýchat, může u něj dojít k zástavě srdce nebo k záchvatu
+křečí. Předávkování může být smrtelné, byť tomu tak ve většině případů
+není. Existují však způsoby jak předávkování předejít a jak jej řešit, pokud
+tento stav přece jen nastane. Hranice mezi životem a smrtí v případě
+předávkování závisí do značné míry na tom, jak osoby, které jsou mu
+přítomny, zareagují a jak se o předávkovanou osobu postarají. </p>
+    
+       <div class="drug-list-box">
+    <h3><i class="fas fa-capsules icon"></i> Seznam látek</h3>
+    <ul>
+        <li><a href="#kratom">Kratom</a></li>
+        <li><a href="#opioids">Opioidy (Heroin, Fentanyl, Oxykodon...)</a></li>
+        <li><a href="#cocaine">Kokain</a></li>
+        <li><a href="#mdma">MDMA (Extáze)</a></li>
+        <li><a href="#meth">Pervitin</a></li>
+        <li><a href="#thc">THC</a></li>
+        <li><a href="#hhc">HHC</a></li>
+        <li><a href="#alcohol">Alkohol</a></li>
+        <li><a href="#lsd">LSD</a></li>
+        <li><a href="#mushrooms">Lysohlávky</a></li>
+        <li><a href="#cannabis">Konopí</a></li>
+        <li><a href="#caffeine">Kofein</a></li>
+    </ul>
+</div>
+    <div class="container">
+        <h2 id="substances"><i class="fas fa-pills icon"></i> Informace o jednotlivých látkách</h2>
+        
+        <div class="info-section">
+            <h2 id="kratom"><i class="fas fa-leaf icon"></i> Kratom - První pomoc</h2>
+            <p>Kratom je látka pocházející z listů stromu Mitragyna speciosa, který roste v jihovýchodní Asii. V tradiční medicíně těchto regionů se kratom používá k úlevě od bolesti, zvýšení energie a zlepšení nálady. V závislosti na dávce může mít stimulační účinky (zvýšená bdělost, energie) nebo sedativní účinky (útlum, euforie).</p>
+            <h3>Jak poznat předávkování?</h3>
+            <ul>
+                <li>Nevolnost a zvracení</li>
+                <li>Únava, ospalost, dezorientace</li>
+                <li>Podrážděnost, úzkost nebo halucinace</li>
+                <li>Rychlé nebo zpomalené dýchání</li>
+            </ul>
+            <h3>Co dělat při předávkování?</h3>
+            <ul>
+                <li>Okamžitě volejte <strong>155</strong></li>
+                <li>Udržujte postiženého v klidném prostřed</l>
+                <li>ihned přestaňte užívat kratom a vyhněte se kombinaci s jinými látkami, které by mohly situaci zhoršit</l>
+                <li>Poskytněte přivolaným zdravotníkům co nejvíce informací o situaci, včetně množství a času užití kratomu, a zda byly užity i jiné látky</li>
+                <li>Podávejte dostatek vody k hydrataci</li>
+                <li>Pokud dojde ke ztrátě vědomí, položte osobu do stabilizované polohy</li>
+                <li>Sledujte dýchání a srdeční činnost</li>
+            </ul>
+        </div>
+        
+        <div class="info-section">
+            <h2 id="opioids"><i class="fas fa-capsules icon"></i> Opioidy - První pomoc</h2>
+            <p>Opioidy jsou látky, které se vážou na opioidní receptory v mozku a dalších částech těla, čímž ovlivňují vnímání bolesti a mohou vyvolávat pocity euforie. V medicíně se používají především k tlumení středně silné až silné bolesti, například po operacích nebo při léčbě rakoviny. Mezi běžné opioidy patří morfin, kodein, oxykodon, hydrokodon a fentanyl. Při nesprávném užívání nebo zneužívání mohou opioidy vést k rozvoji tolerance, závislosti a dalších zdravotních komplikací.Řadíme sem dále heroin, metadon a tramadol. </p>
+            <h3>Jak poznat předávkování?</h3>
+            <ul>
+                <li>Extrémní ospalost, malátnost, zmatenost nebo bezvědomí</li>
+                <li>Pomalé, nepravidelné nebo žádné dýchání</l>
+                <li>Typickým znakem je výrazné zúžení zornic na velikost "špendlíkových hlaviček"</li>
+                <li>Kůže může být chladná, vlhká a bledá. V důsledku nedostatečného okysličení může dojít k cyanóze – namodralému zbarvení rtů a nehtů </li>
+                <li> Může se objevit zpomalený srdeční tep (bradykardie) a nízký krevní tlak (hypotenze)</li>
+                <li>Další příznaky: Svědění kůže, nevolnost, zvracení, zácpa a celkový útlum</li>
+            </ul>
+            <h3>Co dělat při předávkování?</h3>
+            <ul>
+                <li>Okamžitě volejte <strong>155</strong></li>
+                <li>Podávejte <strong>Naloxon</strong>, pokud je k dispozici</li>
+                <li>Kontrolujte stav postiženého - oslovte ho nebo použijte bolestné podněty </li>
+                <li>Sledujte, zda postižený dýchá normálně</li>
+                <li>Pokud postižený nedýchá nebo má nepravidelné dýchání: Zahajte kardiopulmonální resuscitaci (KPR) – střídavě stlačujte hrudník a poskytujte umělé dýchání</li>
+            </ul>
+        </div>
+        
+        <div class="info-section">
+            <h2 id="alcohol"><i class="fas fa-wine-bottle icon"></i> Alkohol - První pomoc</h2>
+            <p>Alkohol je návyková látka, která ovlivňuje centrální nervový systém a může způsobit fyzickou i psychickou závislost.Při nadměrné konzumaci alkoholu hrozí otrava, bezvědomí nebo zástava dechu.</p>
+            <h3>Jak poznat otravu?</h3>
+            <ul>
+                <li>Zmatenost, ospalost, nereagování na podněty, až bezvědomí</li>
+                <li>Ztráta koordinace</li>
+                 <li>Pomalé, nepravidelné nebo mělké dýchání (méně než 8 dechů za minutu)</li>
+              <li>Opakované zvracení, které může vést k dehydrataci nebo riziku vdechnutí zvratků</li>
+              <li>Výskyt záchvatů a křečí</li>
+              <li>Snížená teplota, bledá či namodralá kůže   
+              <li>Pomalý srdeční tep (Bradykardie)</li>
+            </ul>
+            <h3>Co dělat?</h3>
+            <ul>
+                <li>Volejte <strong>155</strong></li>
+                <li>Ujistěte se, že postižený je v bezpečném prostředí a nehrozí mu další nebezpečí.</li>
+                <li>Sledujte dýchání a vědomí: Pokud postižený nedýchá nebo nemá puls, zahajte kardiopulmonální resuscitaci (KPR)</li>
+                <li>Pokud je postižený v bezvědomí, ale dýchá, uložte ho do stabilizované polohy na boku, aby se snížilo riziko vdechnutí zvratků</li>
+                <li>Zakryjte postiženého, aby nedošlo k podchlazení, ale nepřehřívejte ho </li>
+            </ul>
+            <h3>Co nedělat?</h3>
+            <ul>
+                <li> Nevyvolávejte zvracení, hrozí riziko vdechnutí zvratků</li>
+                <li>Nepodávejte kávu ani jiné stimulanty: Mohou zhoršit dehydrataci a ovlivnit srdeční činnost</li>
+                 <li> Nenechávejte postiženého "vyspat se": Hladina alkoholu v krvi může dále stoupat, což může vést k zástavě dechu nebo srdce</li>
+        </div>
+             <div class="info-section">
+            <h2 id="hhc"><i class="fas fa-cannabis icon"></i> HHC - První pomoc</h2>
+            <p>HHC je polosyntetický kanabinoid s podobnými účinky jako THC.HHC má psychoaktivní účinky podobné THC, ačkoli je o něm známo méně. Uživatelé uvádějí, že HHC způsobuje mírný pocit intoxikace. 
+</p>
+            <h3>Jak poznat předávkování?</h3>
+            <ul>
+                <li>Silná paranoia,halucinace úzkost, výkyvy nálad, agrese </li>
+                <li>Zrychlený tep, závratě</li>
+                <li>Ztráta vědomí, která může trvat až 48 hodin</li>
+                <li>Křeče a záchvaty</li>
+                <li>Pocit nevolnosti a zvracení</li>
+            </ul>
+            <h3>Co dělat?</h3>
+            <ul>
+                <li> Kontaktujte <strong>155</strong></li>
+                <li>Kontrolujte dýchání a srdeční tep postiženého. Pokud dojde k zástavě dechu nebo srdce, zahajte kardiopulmonální resuscitaci (KPR)</li>
+                <li>Pokud je postižený při vědomí, udržujte ho v klidu a teple. V případě zvracení jej otočte na bok, aby nedošlo k aspiraci</li>
+                <li>Nevkládejte postiženému nic do úst, ani se nesnažte vyvolat zvracení, pokud to neporadí odborník</li>
+            </ul>
+        </div>
+         <div class="info-section">
+            <h2 id="thc"><i class="fas fa-cannabis icon"></i> THC - První pomoc</h2>
+            <p>Tetrahydrokanabinol (THC) je hlavní psychoaktivní složkou rostliny konopí. Je zodpovědný za většinu psychických a fyzických účinků spojených s užíváním konopí. THC působí na endokanabinoidní systém v těle, konkrétně na CB1 receptory v mozku a centrálním nervovém systému, což ovlivňuje náladu, chuť k jídlu, bolest a paměť.</p>
+            <h3>Jak poznat předávkování?</h3>
+            <ul>
+                <li>Silná paranoia, halucinace úzkost</li>
+                <li>Dezorientace, závratě</li>
+                <li>Zpomalené reflexy a vnímání</li>
+                <li>Sucho v ústech - známé také jako "cotton mouth", kdy dochází k výraznému snížení tvorby slin</li>
+            </ul>
+            <h3>Co dělat?</h3>
+            <ul>
+                <li>Zavolejte záchrannou službu <strong>155</strong></li>
+                <li>Udržujte klidné prostředí</li>
+                <li>Zkontrolujte vědomí a dýchání
+                <li>Kanabidiol (CBD) může působit proti některým negativním účinkům THC. Pokud máte k dispozici CBD produkty, může jejich užití pomoci</li>
+                <li>Poskytněte dostatek tekutin, aby nedošlo k dehydrataci</li>
+            </ul>
+        </div>
+        
+        <div class="info-section">
+            <h2 id="mdma"><i class="fas fa-tablets icon"></i> MDMA (Extáze) - První pomoc</h2>
+            <p>MDMA je je syntetická droga s psychoaktivními účinky, která kombinuje stimulační a mírné psychedelické vlastnosti. Chemicky je odvozena od amfetaminu a má podobné účinky jako meskalin. Také je to stimulant a empatogen často užívaný na večírcích pro své schopnosti zvyšovat energii a prohlubovat smyslové prožitky. </p>
+            <h3>Jak poznat předávkování?</h3>
+            <ul>
+                <li>Přehřátí organismu </li>
+                <li>Halucinace, dezorientace, silná úzkost, paranoia</li>
+                <li>Dehydratace způsobená nadměrným pocením a nedostatečným příjmem tekutin</li>
+                  <li>Serotoninový syndrom: Stav způsobený nadměrným množstvím serotoninu v mozku, projevující se zmateností, neklidem, pocením, třesem, svalovými záškuby a v závažných případech křečemi</li>
+                    <li>Zvýšený krevní tlak, nepravidelný srdeční rytmus až srdeční selhání</li>
+            </ul>
+            <h3>Co dělat?</h3>
+            <ul>
+                <li>Volejte <strong>155</strong></li>
+                <li>Zajistěte dostatečnou hydrataci</li>
+                <li>Pokud má postižený zvýšenou teplotu, ochlazujte ho pomocí vlhkých ručníků nebo větráním</li>
+                <li>Kontrolujte vědomí a dýchání</li>
+                <li> Dávejte pozor na možné nebezpečí v okolí (např. injekční jehly) a zabraňte přístupu dalších osob k nebezpečným látkám</li>
+            </ul>
+        </div>
+        
+        <div class="info-section">
+            <h2 id="cocaine"><i class="fas fa-pills icon"></i> Kokain - První pomoc</h2>
+            <p>Kokain je silně návyková stimulační droga získávaná z listů rostliny koka, která pochází z Jižní Ameriky. Působí jako silný stimulant centrálního nervového systému, což vede k dočasným účinkům, jako je zvýšená energie, euforie a zvýšená pozornost. Kokain se obvykle vyskytuje ve formě bílého krystalického prášku a může být užíván šňupáním, injekčně nebo kouřením</p>
+            <h3>Jak poznat předávkování?</h3>
+            <ul>
+                <li>Silná hyperaktivita, paranoia, agresivita, panické ataky</li>
+                <li>Výrazné zvýšení srdeční frekvence, nepravidelný srdeční rytmus, vysoký krevní tlak, bolest na hrudi, která může signalizovat infarkt</li>
+                <li>Nebezpečné zvýšení tělesné teploty</li>
+                <li>Těžká úzkost, neklid, zmatenost, halucinace, záchvaty nebo křeče </li>
+                <li>Nevolnost, zvracení, bolest břicha</li>
+            </ul>
+            <h3>Co dělat?</h3>
+            <ul>
+                <li>Volejte <strong>155</strong></li>
+                <li>Udržujte klidné a bezpečné prostředí</li>
+                <li>Sledujte životní funkce a vědomí</li>
+                <li>Pokud má postižený zvýšenou teplotu, ochlazujte ho pomocí vlhkých ručníků nebo větráním</li>
+            </ul>
+        </div>
+        <div class="info-section">
+            <h2 id="pervitin"><i class="fas fa-bolt icon"></i> Pervitin (Metamfetamin) - První pomoc</h2>
+            <p>Pervitin je silný stimulant ovlivňující centrální nervový systém. Bývá řazen mezi budivé aminy. V ČR se pervitin nyní řadí k nejrozšířenějším z nelegálních drog s vysokým potenciálem pro vznik závislosti.</p>
+            <h3>Jak poznat předávkování?</h3>
+            <ul>
+                <li>Agresivita, paranoia</li>
+                <li>Halucinace, extrémní neklid</li>
+                <li>Výrazné zvýšení srdeční frekvence, nepravidelný srdeční rytmus, vysoký krevní tlak, bolest na hrudi, která může signalizovat infarkt</li>
+                <li>Dušnost nebo potíže s dýcháním</li>
+            </ul>
+            <h3>Co dělat?</h3>
+            <ul>
+                <li>Kontaktujte <strong>155</strong></li>
+                <li>Udržujte postiženého v klidném prostředí a pokud je při vědomí, snažte se s ním mluvit klidným a tichým hlasem. Povzbuďte ho, aby zůstal v klidu a vyhnul se náhlým pohybům</li>
+                <li>Pokud je postižený schopen pít, nabídněte mu malé množství vody, aby nedošlo k dehydrataci</li>
+                <li>Nepodávejte žádné další stimulanty</li>
+            </ul>
+        </div>
+        
+        <div class="info-section">
+            <h2 id="lsd"><i class="fas fa-brain icon"></i> LSD - První pomoc</h2>
+            <p>LSD je silná psychedelická látka, která výrazně ovlivňuje vnímání, myšlení a prožívání. Patří mezi halucinogeny, tedy látky, které mění kvalitu vědomí a smyslové vnímání. </p>
+            <h3>Jak poznat předávkování?</h3>
+            <ul>
+                <li>Silné halucinace, panika, deprese, sebevražedné myšlenky, pocit ztráty kontroly</li>
+                <li>Zvýšený krevní tlak, dezorientace</li>
+                <li> Třes a křeče</li>
+                <li> Rozšířené zornice</li>
+                <li> Nevolnost, pocení</li>
+            </ul>
+            <h3>Co dělat?</h3>
+            <ul>
+                <li>Volejte <strong>155</strong> při závažných reakcích</li>
+                <li>Uklidňujte postiženého. Ujistěte ho, že je v bezpečí a že nepříjemné pocity brzy pominou.</li>
+                <li>Kontrolujte základní životní funkce, jako je dýchání a srdeční tep</li> 
+            </ul>
+        </div>
+        
+        <div class="info-section">
+            <h2 id="cannabis"><i class="fas fa-cannabis icon"></i> Konopí - První pomoc</h2>
+            <p>Konopí je psychoaktivní látka, která může způsobit úzkost a dezorientaci. Ovlivňuje psychiku a vnímání.</p>
+            <h3>Jak poznat předávkování?</h3>
+            <ul>
+                <li>Silná paranoia, halucinace, zmatenost, pocity depersonalizace nebo derealizace</li>
+                <li>Nevolnost, zrychlený tep</li>
+                <li> Sucho v ústech, rozšířené zornice</li>
+                <li> Třes, nevolnost nebo zvracení</li>
+            </ul>
+            <h3>Co dělat?</h3>
+            <ul>
+                <li>Udržujte klidné prostředí</li>
+                <li>Pijte dostatek vody, aby nedošlo k dehydrataci. Vyhněte se však konzumaci alkoholu nebo kofeinových nápojů, které mohou stav zhoršit</li>
+                <li>Provádějte hluboké nádechy a výdechy, což může pomoci snížit úzkost a navodit pocit klidu</li>
+            </ul>
+        </div>
+        
+        <div class="info-section">
+            <h2 id="caffeine"><i class="fas fa-coffee icon"></i> Kofein - První pomoc</h2>
+            <p>Kofein je stimulant běžně nacházející se v kávě a energetických nápojích.Přirozeně se vyskytuje v semenech, listech a plodech některých rostlin, jako jsou kávová zrna, čajové lístky, kakaové boby a bobule guarany. V čisté formě je to bílá, hořká krystalická látka patřící mezi xanthinové alkaloidy. </p>
+            <h3>Jak poznat předávkování?</h3>
+            <ul>
+                <li>Silné bušení srdce</li>
+                <li>Neklid, třes</li>
+                <li>Nespavost, podrážděnost
+                <li>Bolesti hlavy, zvýšené pocení</li>
+                <li>V závažnějších případech může dojít k: halucinacím, epileptickým záchvatům, vážným poruchám srdečního rytmu či poruchám vědomí</li>
+            </ul>
+            <h3>Co dělat?</h3>
+            <ul>
+                <li>Volejte <strong>155</strong> při extrémních příznacích</li>
+                <li>Podávejte dostatek vody</li>
+                <li>Uložte postiženého na klidné místo a zajistěte mu odpočinek</li>
+            </ul>
+         </div>
+      </nav>
+    <div class="container">
+        <h2 id="naloxone"><i class="fas fa-syringe icon"></i> Jak podat Naloxon?</h2>
+        <div class="naloxon-section">
+            <h3>Podrobné instrukce</h3>
+            <ul>
+                <li>Podávejte <strong>intramuskulárně</strong> (do svalu) nebo <strong>nosním sprejem</strong></li>
+                <li><strong>Intramuskulární podání:</strong> Aplikujte injekci do stehna nebo ramene</li>
+                <li><strong>Nosní sprej:</strong> Vložte sprej do jedné nosní dírky a <strong>zmáčkněte</strong></li>
+                <li>Opakujte dávku <strong>každé 2–3 minuty</strong>, pokud postižený nezačne dýchat</li>
+                <li>Ponechte osobu v <strong>bezpečné poloze</strong> a kontrolujte její stav</li>
+              <li>Podávejte dostatek vody</li>
+            </ul>
+         </div>
+       </div> 
+     </nav>
+          <div id="addiction" class="green-section">
+            <h2 id="addiction"><i class="fas fa-exclamation-triangle icon"></i> Jak rozpoznat závislost?</h2>
+            <p>Závislost na drogách se může projevovat různými způsoby, včetně fyzických a psychických změn.</p>
+            <h3>Typické příznaky závislosti:</h3>
+            <ul>
+                <li>Silná touha po užívání látky</li>
+                <li>Zvýšená tolerance (potřeba vyšších dávek)</li>
+                <li>Opakované neúspěšné pokusy o omezení užívání</li>
+                <li>Výskyt abstinenčních příznaků při vysazení</li>
+                <li>Zanedbávání osobních a profesních povinností</li>
+            </ul>
+        </div>
+        
+        <div id="helping-users" class="green-section">
+            <h2 id="helping-users"><i class="fas fa-hands-helping icon"></i> Jak pomoci někomu, kdo užívá drogy?</h2>
+            <p>Pokud máte v okolí někoho, kdo užívá drogy, můžete mu nabídnout podporu a pomoc.</p>
+            <h3>Co můžete udělat?</h3>
+            <ul>
+                <li>Zachovejte klid a snažte se pochopit situaci bez odsuzování</li>
+                <li>Informujte se o dané látce a jejích účincích</li>
+                <li>Podpořte osobu v hledání odborné pomoci</li>
+                <li>Nezůstávejte na problém sami – obraťte se na poradny</li>
+            </ul>
+        </div>
+        
+        <div id="helping-users" class="green-section">
+            <h2 id="myths"><i class="fas fa-lightbulb icon"></i> Časté mýty o drogách</h2>
+            <p>Existuje mnoho mylných představ o drogách a jejich účincích. Zde jsou některé z nejčastějších.</p>
+            <h3>Mýty a realita:</h3>
+            <ul>
+                <li><strong>Mýtus:</strong> „Jedno užití heroinu způsobí okamžitou závislost.“<br>
+                    <strong>Realita:</strong> Závislost se vyvíjí postupně, i když heroin má vysoký návykový potenciál.</li>
+                <li><strong>Mýtus:</strong> „Marihuana není návyková.“<br>
+                    <strong>Realita:</strong> Přestože fyzická závislost je vzácná, psychická závislost může být silná.</li>
+                <li><strong>Mýtus:</strong> „LSD může způsobit trvalé poškození mozku.“<br>
+                    <strong>Realita:</strong> LSD nemá prokázané neurotoxické účinky, ale může způsobit dlouhodobé psychické problémy.</li>
+            </ul>
+        </div>
+        <div class="quiz-container">
+        <h2>Kvíz: Rozpoznání příznaků předávkování</h2>
+        <form id="quiz-form">
+        <div class="question">
+                <p><strong>1. Který z následujících je běžný příznak předávkování opioidy?</strong></p>
+                <ul class="options">
+                    <li><label><input type="radio" name="q1" value="a"> Zvýšená energie a euforie</label></li>
+                    <li><label><input type="radio" name="q1" value="b"> Pomalé nebo nepravidelné dýchání</label></li>
+                    <li><label><input type="radio" name="q1" value="c"> Zvýšená chuť k jídlu</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <p><strong>2. Co je typickým příznakem předávkování stimulanty, jako je pervitin?</strong></p>
+                <ul class="options">
+                    <li><label><input type="radio" name="q2" value="a"> Extrémní ospalost</label></li>
+                    <li><label><input type="radio" name="q2" value="b"> Halucinace a paranoia</label></li>
+                    <li><label><input type="radio" name="q2" value="c"> Zpomalený srdeční tep</label></li>
+                </ul>
+            </div>
+            <div class="question">
+                <p><strong>3. Jaký je běžný příznak předávkování alkoholem?</strong></p>
+                <ul class="options">
+                    <li><label><input type="radio" name="q3" value="a"> Zvýšená bdělost</label></li>
+                    <li><label><input type="radio" name="q3" value="b"> Ztráta koordinace a zvracení</label></li>
+                    <li><label><input type="radio" name="q3" value="c"> Sucho v ústech</label></li>
+                </ul>
+            </div>
+            <button type="button" class="submit-btn" onclick="checkAnswers()">Odeslat</button>
+        </form>
+        <div id="result" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                q1: 'b',
+                q2: 'b',
+                q3: 'b'
+            };
+
+            let score = 0;
+            const form = document.getElementById('quiz-form');
+            const formData = new FormData(form);
+
+            for (const [question, answer] of formData.entries()) {
+                if (answer === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            if (score === Object.keys(correctAnswers).length) {
+                resultDiv.textContent = `Výborně! Odpověděli jste správně na všechny otázky.`;
+                resultDiv.className = 'result correct';
+            } else {
+                resultDiv.textContent = `Odpověděli jste správně na ${score} z ${Object.keys(correctAnswers).length} otázek. Zkuste to znovu.`;
+                resultDiv.className = 'result incorrect';
+            }
+        }
+    </script>
+    <div class="faq-box">
+    <h3>❓ Časté dotazy (FAQ)</h3>
+    <details>
+        <summary>🔹 Jak poznám rozdíl mezi předávkováním opioidů a alkoholem?</summary>
+        <p>Opioidy způsobují pomalé dýchání a extrémní ospalost. Alkohol může způsobit ztrátu vědomí, ale dýchání bývá normální nebo zrychlené.</p>
+    </details>
+    <details>
+        <summary>🔹 Mohu podat Naloxon, i když si nejsem jistý, že jde o opioidy?</summary>
+        <p>Ano! Naloxon je bezpečný i pro lidi, kteří opioidy neužívají, takže pokud máte podezření, vždy ho podejte.</p>
+    </details>
+</div>
+      </nav>
+      <div class="contacts-box">
+    <h2 id="contacts"><i class="fas fa-phone icon"></i> Drogové poradny a krizová centra</h2>
+    <ul>
+        <li><strong>📞 Linka první pomoci:</strong> <span style="color: red;">155</span></li>
+        <li><strong>🟠 Drogová poradna Magdalena:</strong> <a href="https://www.magdalena-ops.cz/" target="_blank">www.magdalena-ops.cz</a></li>
+        <li><strong>🟠 Drogová poradna Sananim:</strong> <a href="https://www.sananim.cz/" target="_blank">www.sananim.cz</a></li>
+        <li><strong>🟠 Drop-in centrum Praha:</strong> <a href="https://www.dropin.cz/" target="_blank">www.dropin.cz</a></li>
+        <li><strong>🟠 Národní linka pro odvykání:</strong> 800 350 000</li>
+        <li><strong>🟠 Krizová linka RIAPS:</strong> +420 222 586 768</li>
+        <li><strong>🟠 Klinika adiktologie VFN:</strong> <a href="https://www.adiktologie.cz/" target="_blank">www.adiktologie.cz</a></li>
+    </ul>
+</div>
+    </div>
+</body>
+</html>
